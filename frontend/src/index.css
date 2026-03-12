@@ -1,0 +1,237 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  @apply bg-primary-dark text-light-gray;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-primary-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-accent rounded-lg;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-soft-blue;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(46, 57, 68, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(116, 141, 146, 0.2);
+}
+
+.glass-dark {
+  background: rgba(33, 42, 49, 0.8);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(116, 141, 146, 0.3);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(18, 78, 102, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(18, 78, 102, 0.8);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #124E66, #748D92, #D3D9D4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+  background: linear-gradient(135deg, #124E66, #2E3944);
+  @apply text-light-gray;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(18, 78, 102, 0.4);
+}
+
+.btn-secondary {
+  @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+  @apply text-light-gray;
+  border: 2px solid #124E66;
+  cursor: pointer;
+  background: transparent;
+}
+
+.btn-secondary:hover {
+  @apply bg-accent;
+  transform: translateY(-2px);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.4s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Input styles */
+.input-field {
+  @apply w-full px-4 py-3 rounded-lg transition-all duration-300;
+  background: rgba(46, 57, 68, 0.5);
+  border: 2px solid rgba(116, 141, 146, 0.3);
+  @apply text-light-gray;
+}
+
+.input-field:focus {
+  outline: none;
+  @apply border-accent;
+  box-shadow: 0 0 20px rgba(18, 78, 102, 0.2);
+}
+
+.input-field::placeholder {
+  color: rgba(211, 217, 212, 0.5);
+}
+
+/* Light mode overrides */
+.light {
+  @apply bg-light-gray text-primary-dark;
+}
+
+.light .glass {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(33, 42, 49, 0.1);
+}
+
+.light .glass-dark {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* Section styles */
+.section-padding {
+  padding: 100px 20px;
+}
+
+.container-custom {
+  @apply max-w-6xl mx-auto px-5;
+}
+
+/* Background patterns */
+.bg-grid {
+  background-image: 
+    linear-gradient(rgba(18, 78, 102, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 78, 102, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.bg-dots {
+  background-image: radial-gradient(rgba(18, 78, 102, 0.3) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Loading animation */
+.loader {
+  border: 3px solid rgba(18, 78, 102, 0.3);
+  border-radius: 50%;
+  border-top: 3px solid #124E66;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Utility classes */
+@layer utilities {
+  .text-primary-dark {
+    color: #212A31;
+  }
+  .bg-primary-dark {
+    background-color: #212A31;
+  }
+  .text-secondary-dark {
+    color: #2E3944;
+  }
+  .bg-secondary-dark {
+    background-color: #2E3944;
+  }
+  .text-accent {
+    color: #124E66;
+  }
+  .bg-accent {
+    background-color: #124E66;
+  }
+  .text-soft-blue {
+    color: #748D92;
+  }
+  .bg-soft-blue {
+    background-color: #748D92;
+  }
+  .text-light-gray {
+    color: #D3D9D4;
+  }
+  .bg-light-gray {
+    background-color: #D3D9D4;
+  }
+}
+
