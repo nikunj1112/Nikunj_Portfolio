@@ -12,11 +12,15 @@ connectDB();
 const app = express();
 
 // Middleware
+const upload = require('./middleware/multerConfig');
+app.use('/uploads', express.static('uploads'));
+
 app.use(cors({
   origin: ['http://localhost:5173', 'http://localhost:3000'],
   credentials: true,
 }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true })); // For form data
 
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));

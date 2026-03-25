@@ -27,7 +27,20 @@ export const authAPI = {
 export const profileAPI = {
   getProfile: () => api.get('/profile'),
   updateProfile: (data) => api.put('/profile', data),
+  uploadProfileImage: (formData) => api.post('/profile/image', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  }),
+  uploadResume: (formData) => api.post('/profile/resume', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  }),
 };
+
+
+
 
 export const skillsAPI = {
   getSkills: () => api.get('/skills'),
