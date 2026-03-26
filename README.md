@@ -5,6 +5,7 @@ A fully dynamic portfolio website with admin dashboard for managing all portfoli
 ## 🌟 Features
 
 - **Dynamic Profile Management** - Update name, title, about, social links, resume
+- 
 - **Skills Management** - Full CRUD for technical skills with categories
 - **Project Management** - Add, edit, delete portfolio projects
 - **GitHub Integration** - Automatic fetch of repositories, stats, and languages
